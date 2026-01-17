@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Notification</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <section
+        class="notification"
+        role="alert"
+        aria-live="assertive"
+      >
+        <button
+          class="close-btn"
+          aria-label="Close notification"
+          title="Close"
+        >
+          &times;
+        </button>
+
+        <p>
+          This is a floating notification! Click the
+          <strong>"X"</strong> to close.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      const closeBtn = document.querySelector(".close-btn");
+      const notification = document.querySelector(".notification");
+
+      closeBtn.addEventListener("click", () => {
+        notification.style.opacity = "0";
+        notification.style.transform = "translateY(-20px)";
+        setTimeout(() => notification.remove(), 300);
+      });
+    </script>
+  </body>
+</html>
